@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  ParseHtml:
+    Properties:
+      CodeUri: s3://baseball-reference/3c126a5a228f10006704769b5590687a
+      Events:
+        ParseHtmlEvent:
+          Properties:
+            Bucket:
+              Ref: SrcBucket
+            Events: s3:ObjectCreated:*
+          Type: S3
+      Handler: parse_html
+      Policies: AWSLambdaExecute
+      Runtime: ruby2.5
+      Timeout: 60
+    Type: AWS::Serverless::Function
+  SrcBucket:
+    Type: AWS::S3::Bucket
+Transform: AWS::Serverless-2016-10-31

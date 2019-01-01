@@ -1,0 +1,19 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    csv (3.0.2)
+    dotenv (2.5.0)
+    mini_portile2 (2.4.0)
+    nokogiri (1.9.1)
+      mini_portile2 (~> 2.4.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  csv
+  dotenv
+  nokogiri
+
+BUNDLED WITH
+   1.17.3

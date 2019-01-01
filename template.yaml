@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  ParseHtml:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: parse_html
+      Runtime: ruby2.5
+      Timeout: 60
+      Policies: AWSLambdaExecute
+      Events:
+        ParseHtmlEvent:
+          Type: S3
+          Properties:
+            Bucket: !Ref SrcBucket
+            Events: s3:ObjectCreated:*
+
+  SrcBucket:
+    Type: AWS::S3::Bucket
