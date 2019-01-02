@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Resources:
   ParseHtml:
     Properties:
-      CodeUri: s3://baseball-reference/3c126a5a228f10006704769b5590687a
+      CodeUri: s3://baseball-reference/65c6b1cd3687b2e1019cf1903884e896
       Events:
         ParseHtmlEvent:
           Properties:

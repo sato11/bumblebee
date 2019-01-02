@@ -1,17 +1,14 @@
 require 'aws-sdk'
-require 'dotenv'
 require 'nokogiri'
 require './lib/html_table'
-
-Dotenv.load
 
 HTML_IDS = %w(team_batting team_pitching standard_roster)
 
 def client
   @client ||= Aws::S3::Client.new(
-    region: ENV.fetch('REGION'),
-    access_key_id: ENV.fetch('ACCESS_KEY_ID'),
-    secret_access_key: ENV.fetch('SECRET_ACCESS_KEY'),
+    region: ENV.fetch('S3_REGION'),
+    access_key_id: ENV.fetch('S3_ACCESS_KEY_ID'),
+    secret_access_key: ENV.fetch('S3_SECRET_ACCESS_KEY'),
   )
 end
 
